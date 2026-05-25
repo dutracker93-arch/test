@@ -263,7 +263,11 @@
     margin-top: 0.4rem;
   }
 
-  .skill-bar { margin-bottom: 1.8rem; }
+  .about-skills { }
+
+  .skill-bar {
+    margin-bottom: 1.8rem;
+  }
 
   .skill-bar-header {
     display: flex;
@@ -313,37 +317,6 @@
     gap: 1.5rem;
   }
 
-  /* FILTER MENU */
-  .portfolio-filters {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    padding: 0.7rem 1.8rem;
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-  }
-
-  .filter-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .filter-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--glow);
-  }
-
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -356,12 +329,8 @@
     border: 1px solid var(--border);
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.35s, border-color 0.35s, opacity 0.4s ease;
+    transition: transform 0.35s, border-color 0.35s;
     clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-  }
-
-  .portfolio-item.hidden {
-    display: none;
   }
 
   .portfolio-item:hover {
@@ -435,7 +404,6 @@
     font-family: 'Pixelify Sans', sans-serif;
     font-size: 1.2rem;
     color: var(--text);
-    text-transform: uppercase;
   }
 
   .portfolio-arrow {
@@ -447,10 +415,6 @@
     color: var(--muted);
     transition: all 0.25s;
     font-size: 0.8rem;
-  }
-
-  .portfolio-arrow::after {
-    content: '→';
   }
 
   .portfolio-item:hover .portfolio-arrow {
@@ -633,7 +597,6 @@
     .portfolio-item.large { grid-column: span 1; }
     .services-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; align-items: flex-start; }
-    .portfolio-filters { justify-content: flex-start; }
   }
 </style>
 </head>
@@ -655,7 +618,7 @@
   <div class="hero-inner">
     <p class="hero-tag">3D Artist and Digital Sculptor</p>
     <h1 class="hero-name">RAYAN<br><span class="accent">KINGS</span></h1>
-    <p class="hero-sub">Hard Surface & Organic Environments</p>
+    <p class="hero-sub">Hard Surface Organic Environments</p>
     <p class="hero-desc">Crafting hyper detailed 3D models from fearsome wildlife to military grade machinery with obsessive precision and technical excellence.</p>
     <a href="#portfolio" class="hero-cta">View Portfolio</a>
   </div>
@@ -753,20 +716,13 @@
         <p class="section-label">02 Selected Works</p>
         <h2 class="section-title">Portfolio</h2>
       </div>
-      
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="organic">Organic</button>
-        <button class="filter-btn" data-filter="vehicles">Vehicles</button>
-        <button class="filter-btn" data-filter="military">Military</button>
-      </div>
     </div>
 
     <div class="portfolio-grid">
 
-      <div class="portfolio-item large" data-category="organic">
+      <div class="portfolio-item large">
         <div style="overflow:hidden;">
-          <img src="cobra.jpg" alt="Cobra 3D Sculpt" class="portfolio-img">
+          <img src="cobra.png" alt="Cobra 3D Sculpt" class="portfolio-img">
         </div>
         <div class="portfolio-overlay">
           <span class="portfolio-tag">Organic Sculpt ZBrush</span>
@@ -774,14 +730,14 @@
           <div class="portfolio-desc-item">High poly organic sculpt. Every scale hand placed for anatomical realism.</div>
         </div>
         <div class="portfolio-bottom">
-          <span class="portfolio-label">King Cobra - Organic</span>
+          <span class="portfolio-label">King Cobra Organic</span>
           <div class="portfolio-arrow"></div>
         </div>
       </div>
 
-      <div class="portfolio-item" data-category="military">
+      <div class="portfolio-item">
         <div style="overflow:hidden;">
-          <img src="weapon.jpg" alt="Weapon 3D Model" class="portfolio-img">
+          <img src="weapon.png" alt="Weapon 3D Model" class="portfolio-img">
         </div>
         <div class="portfolio-overlay">
           <span class="portfolio-tag">Hard Surface Military</span>
@@ -794,9 +750,24 @@
         </div>
       </div>
 
-      <div class="portfolio-item" data-category="vehicles military">
+      <div class="portfolio-item">
         <div style="overflow:hidden;">
-          <img src="spacecraft.jpg" alt="Spacecraft 3D Model" class="portfolio-img">
+          <img src="tank.png" alt="tank 3D Model" class="portfolio-img">
+        </div>
+        <div class="portfolio-overlay">
+          <span class="portfolio-tag">Hard Surface Military</span>
+          <div class="portfolio-title-item">Tactical Firearm</div>
+          <div class="portfolio-desc-item">Highly detailed wireframe.</div>
+        </div>
+        <div class="portfolio-bottom">
+          <span class="portfolio-label">tank</span>
+          <div class="portfolio-arrow"></div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div style="overflow:hidden;">
+          <img src="spacecraft.png" alt="Spacecraft 3D Model" class="portfolio-img">
         </div>
         <div class="portfolio-overlay">
           <span class="portfolio-tag">Hard Surface Vehicle</span>
@@ -809,20 +780,22 @@
         </div>
       </div>
 
-      <div class="portfolio-item" data-category="vehicles">
+         <div class="portfolio-item">
         <div style="overflow:hidden;">
-          <img src="helicopter.jpg" alt="Helicopter 3D Model" class="portfolio-img">
+          <img src="truck.png" alt="truck 3D Model" class="portfolio-img">
         </div>
         <div class="portfolio-overlay">
           <span class="portfolio-tag">Hard Surface Vehicle</span>
-          <div class="portfolio-title-item">Rotorcraft Rig</div>
-          <div class="portfolio-desc-item">Detailed polygon helicopter mesh tailored for cinematic sequence blocking.</div>
+          <div class="portfolio-title-item"truck</div>
+          <div class="portfolio-desc-item">Heavy duty truck.</div>
         </div>
         <div class="portfolio-bottom">
-          <span class="portfolio-label">Helicopter</span>
+          <span class="portfolio-label">truck </span>
           <div class="portfolio-arrow"></div>
         </div>
       </div>
+
+     
 
     </div>
   </div>
@@ -899,40 +872,6 @@
     el.style.transform='translateY(30px)';
     el.style.transition='opacity 0.6s ease, transform 0.6s ease';
     revealObs.observe(el);
-  });
-
-  // Portfolio Filtering Logic
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Manage active states
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // Filter grid items
-      portfolioItems.forEach(item => {
-        const itemCategories = item.getAttribute('data-category');
-        
-        if (filterValue === 'all' || itemCategories.includes(filterValue)) {
-          item.style.display = 'block';
-          // Small timeout to allow transition on display block
-          setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          item.style.opacity = '0';
-          item.style.transform = 'translateY(10px)';
-          setTimeout(() => {
-            item.style.display = 'none';
-          }, 350); // Matches CSS transition duration
-        }
-      });
-    });
   });
 </script>
 </body>
