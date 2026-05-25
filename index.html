@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAYANKINGS — 3D Artist Portfolio</title>
+<title>RAYANKINGS 3D Artist Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -30,7 +30,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE OVERLAY ── */
+  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -41,7 +41,7 @@
     opacity: 0.4;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -82,7 +82,7 @@
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* ── HERO ── */
+  /* HERO */
   #hero {
     min-height: 100vh;
     display: grid;
@@ -205,7 +205,7 @@
     animation: scrollPulse 2s infinite;
   }
 
-  /* ── SECTION COMMON ── */
+  /* SECTION COMMON */
   section { padding: 7rem 3rem; }
 
   .section-label {
@@ -226,7 +226,7 @@
     margin-bottom: 3.5rem;
   }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   #about {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -316,7 +316,7 @@
 
   .skill-fill.animate { animation-play-state: running; }
 
-  /* ── PORTFOLIO ── */
+  /* PORTFOLIO */
   #portfolio { max-width: 1400px; margin: 0 auto; }
 
   .portfolio-header {
@@ -380,11 +380,12 @@
 
   .portfolio-img {
     width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
+    aspect-ratio: 16/9;
+    object-fit: contain; /* Prevents image from being cropped */
     display: block;
     filter: grayscale(20%) brightness(0.85);
     transition: filter 0.4s, transform 0.5s;
+    background-color: var(--card);
   }
 
   .portfolio-item:hover .portfolio-img {
@@ -429,7 +430,6 @@
     line-height: 1.6;
   }
 
-  /* bottom label always visible */
   .portfolio-bottom {
     padding: 1rem 1.4rem;
     border-top: 1px solid var(--border);
@@ -462,7 +462,7 @@
     background: var(--glow);
   }
 
-  /* ── SERVICES ── */
+  /* SERVICES */
   #services {
     background: var(--surface);
     border-top: 1px solid var(--border);
@@ -537,7 +537,7 @@
     color: #8892a4;
   }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   #contact {
     max-width: 800px;
     margin: 0 auto;
@@ -591,7 +591,7 @@
     background: var(--glow);
   }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 2rem 3rem;
@@ -617,7 +617,7 @@
     text-transform: uppercase;
   }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -631,31 +631,6 @@
   @keyframes skillFill {
     from { width: 0; }
     to   { width: var(--w); }
-  }
-
-  /* ── CURSOR ── */
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    mix-blend-mode: difference;
-    transition: transform 0.15s;
-    transform: translate(-50%, -50%);
-  }
-
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0.5;
-    transition: all 0.35s ease;
-    transform: translate(-50%, -50%);
   }
 
   /* mobile */
@@ -673,11 +648,6 @@
 </head>
 <body>
 
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">RAYAN<span>KINGS</span></a>
   <ul class="nav-links">
@@ -688,16 +658,15 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <p class="hero-tag">⬡ 3D Artist &amp; Digital Sculptor</p>
+    <p class="hero-tag">3D Artist and Digital Sculptor</p>
     <h1 class="hero-name">RAYAN<br><span class="accent">KINGS</span></h1>
-    <p class="hero-sub">Hard Surface · Organic · Environments</p>
-    <p class="hero-desc">Crafting hyper-detailed 3D models — from fearsome wildlife to military-grade machinery — with obsessive precision and technical excellence.</p>
-    <a href="#portfolio" class="hero-cta">→ View Portfolio</a>
+    <p class="hero-sub">Hard Surface Organic Environments</p>
+    <p class="hero-desc">Crafting hyper detailed 3D models from fearsome wildlife to military grade machinery with obsessive precision and technical excellence.</p>
+    <a href="#portfolio" class="hero-cta">View Portfolio</a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -705,21 +674,20 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section>
   <div id="about">
     <div class="about-text">
-      <p class="section-label">// 01 — About</p>
+      <p class="section-label">01 About</p>
       <h2 class="section-title">The Artist<br>Behind the Mesh</h2>
-      <p>I'm Rayan, a 3D artist specialising in high-fidelity sculpting and hard-surface modelling. My work spans organic life forms to complex mechanical assets, always pushed to the limits of polygon density and anatomical accuracy.</p>
-      <p>Every wire, every scale, every bolt — meticulously placed. I don't do "good enough." I do production-ready.</p>
+      <p>I am Rayan, a 3D artist specialising in high fidelity sculpting and hard surface modelling. My work spans organic life forms to complex mechanical assets, always pushed to the limits of polygon density and anatomical accuracy.</p>
+      <p>Every wire, every scale, every bolt meticulously placed. I do not do good enough. I do production ready.</p>
       <div class="about-stats">
         <div class="stat-card">
-          <div class="stat-num">50+</div>
+          <div class="stat-num">50</div>
           <div class="stat-label">Projects Completed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">5+</div>
+          <div class="stat-num">5</div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-card">
@@ -727,19 +695,19 @@
           <div class="stat-label">Specialisations</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">∞</div>
+          <div class="stat-num">Countless</div>
           <div class="stat-label">Polygons Crafted</div>
         </div>
       </div>
     </div>
 
     <div class="about-skills">
-      <p class="section-label" style="margin-bottom:2rem;">// Core Skills</p>
+      <p class="section-label" style="margin-bottom:2rem;">Core Skills</p>
 
       <div class="skill-bar">
         <div class="skill-bar-header">
           <span class="skill-name">ZBrush</span>
-          <span class="skill-pct">95%</span>
+          <span class="skill-pct">95</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:95%"></div></div>
       </div>
@@ -747,7 +715,7 @@
       <div class="skill-bar">
         <div class="skill-bar-header">
           <span class="skill-name">Blender</span>
-          <span class="skill-pct">90%</span>
+          <span class="skill-pct">90</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:90%"></div></div>
       </div>
@@ -755,7 +723,7 @@
       <div class="skill-bar">
         <div class="skill-bar-header">
           <span class="skill-name">Hard Surface Modelling</span>
-          <span class="skill-pct">92%</span>
+          <span class="skill-pct">92</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:92%"></div></div>
       </div>
@@ -763,23 +731,23 @@
       <div class="skill-bar">
         <div class="skill-bar-header">
           <span class="skill-name">Organic Sculpting</span>
-          <span class="skill-pct">88%</span>
+          <span class="skill-pct">88</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:88%"></div></div>
       </div>
 
       <div class="skill-bar">
         <div class="skill-bar-header">
-          <span class="skill-name">UV / Texturing</span>
-          <span class="skill-pct">85%</span>
+          <span class="skill-name">UV Texturing</span>
+          <span class="skill-pct">85</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div>
       </div>
 
       <div class="skill-bar">
         <div class="skill-bar-header">
-          <span class="skill-name">Rendering (Cycles / Arnold)</span>
-          <span class="skill-pct">80%</span>
+          <span class="skill-name">Rendering Cycles Arnold</span>
+          <span class="skill-pct">80</span>
         </div>
         <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
       </div>
@@ -787,12 +755,11 @@
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section style="background:var(--surface); border-top:1px solid var(--border);">
   <div id="portfolio">
     <div class="portfolio-header">
       <div>
-        <p class="section-label">// 02 — Selected Works</p>
+        <p class="section-label">02 Selected Works</p>
         <h2 class="section-title">Portfolio</h2>
       </div>
       <div class="portfolio-filter">
@@ -805,51 +772,48 @@
 
     <div class="portfolio-grid">
 
-      <!-- Cobra — LARGE -->
       <div class="portfolio-item large" data-cat="organic">
         <div style="overflow:hidden;">
-          <img src="cobra.png" alt="Cobra 3D Sculpt" class="portfolio-img" style="aspect-ratio:21/9;">
+          <img src="cobra.png" alt="Cobra 3D Sculpt" class="portfolio-img">
         </div>
         <div class="portfolio-overlay">
-          <span class="portfolio-tag">Organic Sculpt · ZBrush</span>
+          <span class="portfolio-tag">Organic Sculpt ZBrush</span>
           <div class="portfolio-title-item">King Cobra</div>
-          <div class="portfolio-desc-item">High-poly organic sculpt with 1M+ polygon density. Every scale hand-placed for anatomical realism.</div>
+          <div class="portfolio-desc-item">High poly organic sculpt with 1 Million polygon density. Every scale hand placed for anatomical realism.</div>
         </div>
         <div class="portfolio-bottom">
-          <span class="portfolio-label">King Cobra — Organic</span>
-          <div class="portfolio-arrow">→</div>
+          <span class="portfolio-label">King Cobra Organic</span>
+          <div class="portfolio-arrow"></div>
         </div>
       </div>
 
-      <!-- Tank -->
       <div class="portfolio-item" data-cat="military">
         <div style="overflow:hidden;">
           <img src="tank.png" alt="Tank 3D Model" class="portfolio-img" style="background:#1a4080;">
         </div>
         <div class="portfolio-overlay">
-          <span class="portfolio-tag">Hard Surface · Military</span>
+          <span class="portfolio-tag">Hard Surface Military</span>
           <div class="portfolio-title-item">Main Battle Tank</div>
           <div class="portfolio-desc-item">Full mechanical breakdown with track assembly, turret detail and engine bay.</div>
         </div>
         <div class="portfolio-bottom">
-          <span class="portfolio-label">Battle Tank — Military</span>
-          <div class="portfolio-arrow">→</div>
+          <span class="portfolio-label">Battle Tank Military</span>
+          <div class="portfolio-arrow"></div>
         </div>
       </div>
 
-      <!-- Truck -->
       <div class="portfolio-item large" data-cat="vehicle military">
         <div style="overflow:hidden;">
-          <img src="truck.png" alt="Military Truck 3D Model" class="portfolio-img" style="aspect-ratio:21/9; background:#d0cfc8;">
+          <img src="truck.png" alt="Military Truck 3D Model" class="portfolio-img" style="background:#d0cfc8;">
         </div>
         <div class="portfolio-overlay">
-          <span class="portfolio-tag">Hard Surface · Vehicle</span>
+          <span class="portfolio-tag">Hard Surface Vehicle</span>
           <div class="portfolio-title-item">Military Transport Truck</div>
-          <div class="portfolio-desc-item">Wire-frame precision modelling of a 4×4 military flatbed — chassis, suspension and cab fully detailed.</div>
+          <div class="portfolio-desc-item">Wire frame precision modelling of a 4x4 military flatbed chassis, suspension and cab fully detailed.</div>
         </div>
         <div class="portfolio-bottom">
-          <span class="portfolio-label">Military Truck — Vehicle</span>
-          <div class="portfolio-arrow">→</div>
+          <span class="portfolio-label">Military Truck Vehicle</span>
+          <div class="portfolio-arrow"></div>
         </div>
       </div>
 
@@ -857,41 +821,39 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="services-inner">
-    <p class="section-label">// 03 — What I Do</p>
+    <p class="section-label">03 What I Do</p>
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
       <div class="service-card">
         <span class="service-num">01</span>
-        <span class="service-icon">🦎</span>
+        <span class="service-icon"></span>
         <div class="service-title">Organic Sculpting</div>
-        <p class="service-desc">Creatures, characters and anatomical studies. ZBrush-primary workflow with extreme polygon density and surface detail.</p>
+        <p class="service-desc">Creatures, characters and anatomical studies. ZBrush primary workflow with extreme polygon density and surface detail.</p>
       </div>
       <div class="service-card">
         <span class="service-num">02</span>
-        <span class="service-icon">⚙️</span>
+        <span class="service-icon"></span>
         <div class="service-title">Hard Surface Modelling</div>
-        <p class="service-desc">Vehicles, weapons, machinery and industrial assets. Quads-clean topology ready for game engines or film pipelines.</p>
+        <p class="service-desc">Vehicles, weapons, machinery and industrial assets. Quads clean topology ready for game engines or film pipelines.</p>
       </div>
       <div class="service-card">
         <span class="service-num">03</span>
-        <span class="service-icon">🎬</span>
-        <div class="service-title">Rendering & Viz</div>
+        <span class="service-icon"></span>
+        <div class="service-title">Rendering and Viz</div>
         <p class="service-desc">Photoreal renders using Cycles, Arnold or Marmoset. Turntables, keyshot lighting rigs and beauty stills.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section>
   <div id="contact">
-    <p class="section-label">// 04 — Get In Touch</p>
-    <h2 class="section-title">Let's Build<br>Something</h2>
-    <a href="mailto:rayan@rayankings.com" class="contact-email">rayan@rayankings.com</a>
-    <p class="contact-sub">Open for commissions, freelance projects and full-time opportunities.<br>Response within 24 hours.</p>
+    <p class="section-label">04 Get In Touch</p>
+    <h2 class="section-title">Lets Build<br>Something</h2>
+    <a href="mailto:geeseditz@gmail.com" class="contact-email">geeseditz@gmail.com</a>
+    <p class="contact-sub">Open for commissions, freelance projects and full time opportunities.<br>Response within 24 hours.</p>
     <div class="contact-socials">
       <a href="#" class="social-link">ArtStation</a>
       <a href="#" class="social-link">Instagram</a>
@@ -901,25 +863,13 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">RAYANKINGS</div>
-  <div class="footer-copy">© 2026 Rayankings — All rights reserved</div>
+  <div class="footer-copy">Copyright 2026 Rayankings All rights reserved</div>
   <div class="footer-copy">Crafted with obsession</div>
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0, my=0, rx=0, ry=0;
-  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-  (function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
-  document.querySelectorAll('a,button,.portfolio-item,.service-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.style.transform='translate(-50%,-50%) scale(1.8)'; ring.style.opacity='0.3'; });
-    el.addEventListener('mouseleave', () => { ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.opacity='0.5'; });
-  });
-
   // Skill bar animation on scroll
   const fills = document.querySelectorAll('.skill-fill');
   const obs = new IntersectionObserver(entries => {
